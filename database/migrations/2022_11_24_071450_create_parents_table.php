@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->foreignId('children')->references('id')->on('children')
+            ->onDelete('cascade')
+            ->onUpdate('restrict');
         });
     }
 

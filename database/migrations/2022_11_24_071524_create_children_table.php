@@ -21,8 +21,9 @@ $table->string('surname');
 $table->string('personal_code');
 $table->string('date_of_birth');
 $table->string('class');
-
-
+$table->foreignId('parents')->references('id')->on('parents')
+            ->onDelete('cascade')
+            ->onUpdate('restrict');
 
         });
     }
