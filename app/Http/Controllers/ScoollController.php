@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\scholl;
 use Illuminate\Http\Request;
 
 class ScoollController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function index()
     {
-        //
+        return Scholl::all();
     }
 
     /**
@@ -21,10 +22,10 @@ class ScoollController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +35,7 @@ class ScoollController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Scholl::create($request->all());
     }
 
     /**
@@ -45,19 +46,19 @@ class ScoollController extends Controller
      */
     public function show($id)
     {
-        //
+        return Scholl::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -68,17 +69,19 @@ class ScoollController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $scholl = Scholl::find($id);
+        $scholl->update($request->all());
+        return $scholl;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        return Scholl::destroy($id);
     }
 }
